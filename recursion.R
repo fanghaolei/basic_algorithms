@@ -20,7 +20,7 @@ factorial2 <- function(n){
 
 # is palindrome?
 isPalindrome <- function(string){
-    if(nchar(string) == 0 || nchar(string) == 1){
+    if(nchar(string) == 0 | nchar(string) == 1){
         cat('length is 0 or 1, It is a palindrome!\n')
     } else {
         n <- nchar(string)
@@ -48,7 +48,18 @@ pow <- function(x, n){
 }
 
 # power O(log(n)) solution
-
+pow2 <- function(x, n){
+    if(n == 0) {
+        return(1)
+        # n is even
+    } else if (n > 0 & n %% 2 == 0) {
+        return(pow(x, n/2)*pow(x, n/2))
+    } else if (n >0 & n %% 2 != 0) {
+        return(x*pow(x, n-1))
+    } else {
+        return(1/pow(x, -n))
+    }
+}
 
 
 
